@@ -1,0 +1,47 @@
+activemq:
+  brokerUrl: failover:(tcp://10.1.7.22:61616)?timeout=5000
+  username: admin
+  password: admin
+  producerPool:
+    maxConnections: 5
+    idleTimeout: 30000
+    expiryTimeout: 30000
+    timeBetweenExpirationCheckMillis: 30000
+  consumerListener:
+    concurrency: 5
+
+rabbitmq:
+  host: 10.1.7.22
+  port: 5672
+  username: xiaoyu
+  password: xiaoyu
+  virtualHost: /
+  consumerListener:
+    concurrency: 5
+  producerPool:
+    maxTotal: 100
+    maxIdle: 20
+    minIdle: 10
+    maxWaitMillis: 30000
+    minEvictableIdleTimeMillis: 60000
+    timeBetweenEvictionRunsMillis: 30000
+    testOnBorrow: false
+    testOnReturn: fasle
+    testWhileIdle: true
+
+kafka:
+  bootstrapServers: 10.1.7.11:9092,10.1.7.12:9092,10.1.7.13:9092
+  producerPool:
+    maxTotal: 100
+    maxIdle: 20
+    minIdle: 10
+    maxWaitMillis: 30000
+    minEvictableIdleTimeMillis: 60000
+    timeBetweenEvictionRunsMillis: 30000
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    batchSize: 32768
+    lingerMillis: 1000
+  consumerListener:
+    concurrency: 3
