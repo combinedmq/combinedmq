@@ -7,29 +7,14 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 
 import java.util.Properties;
 
-/***
+/**
+ * Kafka生产者的连接池工厂
  *
- *                             _ooOoo_
- *                            o8888888o
- *                            88" . "88
- *                            (| -_- |)
- *                            O\  =  /O
- *                         ____/`---'\____
- *                       .'  \\|     |//  `.
- *                      /  \\|||  :  |||//  \
- *                     /  _||||| -:- |||||-  \
- *                     |   | \\\  -  /// |   |
- *                     | \_|  ''\---/''  |   |
- *                     \  .-\__  `-`  ___/-. /
- *                   ___`. .'  /--.--\  `. . __
- *                ."" '<  `.___\_<|>_/___.'  >'"".
- *               | | :  `- \`.;`\ _ /`;.`/ - ` : | |
- *               \  \ `-.   \_ __\ /__ _/   .-` /  /
- *          ======`-.____`-.___\_____/___.-`____.-'======
- *                             `=---='
- *          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *                     佛祖保佑        永无BUG
- *
+ * @author xiaoyu
+ * @see PooledKafkaProducer
+ * @see org.apache.commons.pool2.PooledObjectFactory
+ * @see KafkaPoolConfig
+ * @since 1.0.0
  */
 public class KafkaFactory implements PooledObjectFactory<PooledKafkaProducer> {
     private Properties config;
