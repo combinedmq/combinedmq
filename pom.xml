@@ -7,6 +7,7 @@
     <groupId>com.github.combinedmq</groupId>
     <artifactId>combinedmq</artifactId>
     <version>1.0.0</version>
+    <name>CombinedMq</name>
 
     <description>A component that integrates rabbitmq、activemq、kafka</description>
     <url>https://github.com/combinedmq/combinedmq</url>
