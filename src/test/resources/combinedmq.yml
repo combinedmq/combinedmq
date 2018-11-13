@@ -26,7 +26,7 @@ rabbitmq:
     minEvictableIdleTimeMillis: 60000
     timeBetweenEvictionRunsMillis: 30000
     testOnBorrow: false
-    testOnReturn: fasle
+    testOnReturn: false
     testWhileIdle: true
 
 kafka:
