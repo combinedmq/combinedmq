@@ -36,7 +36,7 @@ public class ConsumerMain {
     @Test
     public void rabbitmq() throws Exception {
         Consumer consumer = new RabbitMqConsumer(new RabbitMqConnectionFactory(new RabbitMqConfigurationFactory().getConfiguration(), false));
-        consumer.bindMessageListener(new RabbitMqQueue("wechat"), message -> {
+        consumer.bindMessageListener(new RabbitMqQueue("x.y.z"), message -> {
             log.info(new String(message.getBytes()));
         });
         consumer.listen();
