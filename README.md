@@ -3,13 +3,13 @@ CombinedMq
 [![Build Status](https://travis-ci.com/combinedmq/combinedmq.svg?branch=master)](https://travis-ci.com/combinedmq/combinedmq)
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.combinedmq/combinedmq.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.combinedmq%22%20AND%20a:%22combinedmq%22)
 
-[中文版文档](https://github.com/combinedmq/combinedmq/blob/master/README_zh.md)
+[English](https://github.com/combinedmq/combinedmq/blob/master/README.md)
 
-CombinedMq is an abstract encapsulation of RabbitMq, ActiveMq, Kafka message queue component.
+CombinedMq是一个抽象封装了RabbitMq、ActiveMq、Kafka的消息队列组件。
 
-## Using the step
-If you use the Spring framework, you can use either combinedmq-spring-boot-starter or combinedmq-spring directly.
-- Maven dependency：
+## 使用步骤
+如果您使用了Spring相关框架，您可以直接使用combinedmq-spring-boot-starter或combinedmq-spring。
+- Maven依赖：
 
 ```xml
 <dependency>
@@ -18,7 +18,7 @@ If you use the Spring framework, you can use either combinedmq-spring-boot-start
     <version>1.0.0</version>
 </dependency>
 ```
-- Configuration file -- add the combinedmq.yml file to the resource root directory. If you use rabbitmq, add the following to the yml file:
+- 配置文件——在资源根目录下添加combinedmq.yml文件，如果您使用rabbitmq，可以在yml文件中加入下面内容：
  
 
 ```yaml
@@ -29,8 +29,8 @@ rabbitmq:
   password: xiaoyu
   virtualHost: /
   consumerListener:
-    concurrency: 5 #Number of consumers
-  producerPool: #Connection pool configuration, connection pool is only valid for producer
+    concurrency: 5 #消费者数量
+  producerPool: #连接池配置，连接池只是针对生产者有效
     maxTotal: 100
     maxIdle: 20
     minIdle: 10
@@ -40,11 +40,11 @@ rabbitmq:
     testOnBorrow: false
     testOnReturn: false
     testWhileIdle: true
-# ConsumerListener and producerPool can not exist at the same time
+# consumerListener和producerPool可以不同时存在
 ```
-Other configurations can view this [configuration file](https://github.com/combinedmq/combinedmq/blob/master/src/test/resources/combinedmq.yml)。
+其他配置可以查看此[配置文件](https://github.com/combinedmq/combinedmq/blob/master/src/test/resources/combinedmq.yml)。
 
-- Producer code implementation
+- 生产者代码实现
 
 ```java
 public class ProducerTest {
@@ -53,13 +53,13 @@ public class ProducerTest {
         ConnectionFactory connectionFactory = new RabbitMqConnectionFactory(configurationFactory.getConfiguration());
 
         Producer producer = new RabbitMqProducer(connectionFactory);
-        producer.send(new RabbitMqQueue("x.y.z"), new RabbitMqMessage("This is a rabbitmq test message".getBytes()));
-        producer.send(new RabbitMqQueue("x.y.z"), new RabbitMqMessage("This is a rabbitmq test delay message".getBytes(), 60000L));
+        producer.send(new RabbitMqQueue("x.y.z"), new RabbitMqMessage("这是一条rabbitmq测试消息".getBytes()));
+        producer.send(new RabbitMqQueue("x.y.z"), new RabbitMqMessage("这是一条rabbitmq测试延时消息".getBytes(), 60000L));
     }
 }
 ```
 
-- Consumer code implementation
+- 消费者代码实现
 
 ```java
 public class ConsumerTest {
@@ -79,4 +79,4 @@ public class ConsumerTest {
 ```
 
 ---
-### Welcome, thanks!
+### 欢迎关注，谢谢！
